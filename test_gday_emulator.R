@@ -34,7 +34,7 @@ p <- predict(gp_model, newdata=data.frame(x=x2), type="SK")
 
 plot(x3$doy, p$mean, type = "l", xlim = c(0, 365), ylim = c(0, 10),
      xlab = "x", ylab = "y")
-lines(x3$doy, y2, col = "green", lty = 2)
+lines(x3$doy, y2, col = "green")
 #lines(x3$doy, p$lower95, col = "black", lty = 2)
 #lines(x3$doy, p$upper95, col = "black", lty = 2)
 points(x3$doy, y2, col = "red", pch = 19)
