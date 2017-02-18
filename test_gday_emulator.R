@@ -13,7 +13,7 @@ x1 <- data.matrix(x1)
 
 # Get the model response
 df_mod <- read.csv(file="D1GDAYDUKEAMB.csv", header=TRUE, sep=",")
-y1 <- subset(df_mod, YEAR <= yr)$GPP
+y1 <- subset(df_mod, YEAR<=yr)$GPP
 
 # Fit the emaulator
 gp_model <- km(~., design=data.frame(x=x1), response=y1)
@@ -24,4 +24,4 @@ x2 <- data.matrix(x2)
 p <- predict(gp_model, newdata=data.frame(x=x2), type="SK")
 
 plot(p$mean, type="l", ylim=c(0, 15), xlab="DOY", ylab="GPP")
-lines(df_mod$GPP, col = "green")
+lines(df_mod$GPP, col="blue")
