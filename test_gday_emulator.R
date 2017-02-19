@@ -12,7 +12,7 @@ x1 <- x1[keep]
 x1 <- data.matrix(x1)
 
 # Repeat met forcing "few hundred" times
-do.call(rbind, replicate(300, x1, simplify=FALSE))
+x1 <- do.call(rbind, replicate(300, x1, simplify=FALSE))
 
 # Get the model response
 df_mod <- read.csv(file="D1GDAYDUKEAMB.csv", header=TRUE, sep=",")
