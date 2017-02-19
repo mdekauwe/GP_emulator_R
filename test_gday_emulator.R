@@ -17,6 +17,7 @@ x1 <- do.call(rbind, replicate(300, x1, simplify=FALSE))
 # Get the model response
 df_mod <- read.csv(file="D1GDAYDUKEAMB.csv", header=TRUE, sep=",")
 y1 <- subset(df_mod, YEAR<=yr)$GPP
+y1 <- rep(y1, times=300)
 
 # Fit the emaulator
 gp_model <- km(~., design=data.frame(x=x1), response=y1)
