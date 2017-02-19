@@ -11,8 +11,8 @@ keep <- c("tair", "rain","vpd_am","vpd_pm","par_am","par_pm")
 x1 <- x1[keep]
 x1 <- data.matrix(x1)
 
-# Repeat met forcing 100 times
-do.call(rbind, replicate(100, x1, simplify=FALSE))
+# Repeat met forcing 300 times
+do.call(rbind, replicate(300, x1, simplify=FALSE))
 
 # Get the model response
 df_mod <- read.csv(file="D1GDAYDUKEAMB.csv", header=TRUE, sep=",")
