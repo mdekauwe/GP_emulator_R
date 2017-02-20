@@ -7,7 +7,7 @@ library(ggplot2)
 yr = 2005
 df_met <- read.csv(file="DUKE_met_data_amb_co2.csv", header=TRUE, sep=",")
 x1 <- subset(df_met, year<=yr)
-keep <- c("tair", "rain","vpd_am","vpd_pm","par_am","par_pm")
+keep <- c("tair","rain","par_am","par_pm")
 x1 <- x1[keep]
 x1 <- data.matrix(x1)
 
@@ -16,8 +16,10 @@ df_mod <- read.csv(file="D1GDAYDUKEAMB.csv", header=TRUE, sep=",")
 y1 <- subset(df_mod, YEAR<=yr)$GPP
 
 # Repeat met & responses a "few hundred" times
-x1 <- do.call(rbind, replicate(300, x1, simplify=FALSE))
-y1 <- rep(y1, times=300)
+#n_repeat <- 2
+#x1 <- do.call(rbind, replicate(n_repeat, x1, simplify=FALSE))
+#rownames(x1) <- 1:nrow(x1)
+#y1 <- rep(y1, times=n_repeat)
 
 # Fit the emaulator
 gp_model <- km(~., design=data.frame(x=x1), response=y1)
